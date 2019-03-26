@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -83,7 +84,7 @@ public class BoardGame
 	
 	public String getPlayerWithGamePiece(GamePiece gamePiece)
 	{
-		String result = "";
+		String result = null;
 		for(Entry<String, GamePiece> entry : playerPieces.entrySet())
 		{
 			if(entry.getValue() == gamePiece)
@@ -158,11 +159,11 @@ public class BoardGame
 	
 	public Set<Location> getPlayerLocations()
 	{
-		return (Set<Location>)playerLocations.values();
+		return new HashSet<Location>(playerLocations.values());
 	}
 	
 	public Set<GamePiece> getPlayerPieces()
 	{
-		return (Set<GamePiece>)playerPieces.values();
+		return new HashSet<GamePiece>(playerPieces.values());
 	}
 }
