@@ -5,7 +5,9 @@ import java.util.Set;
 import org.junit.Assert;
 import org.junit.Test;
 
-
+/*
+ * A class to test all of the methods in the BoardGame class
+ */
 public class BoardGameTest
 {
 	@Test

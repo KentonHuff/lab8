@@ -1,13 +1,19 @@
+/*
+ * An enumeration of all possible GamePiece shapes
+ */
 enum Shape
 {
 	BOOT, RACECAR, THIMBLE;
 	
 	public String toString()
 	{
-		return this.name();
+		return this.name().toLowerCase();
 	}
 }
 
+/*
+ * An enumeration of all possible GamePiece colors, represented with RBG values.
+ */
 enum Color
 {
 	BLUE(0,0,255), CYAN(0,255,255), GREEN(0,255,0), MAGENTA(255,0,255), RED(255,0,0), YELLOW(255,255,0);
@@ -39,6 +45,9 @@ enum Color
 	}
 }
 
+/*
+ * A class describing the appearance of one GamePiece, with one shape and one color.
+ */
 public class GamePieceAppearance
 {
 	private Color color;

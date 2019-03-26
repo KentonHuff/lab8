@@ -13,13 +13,13 @@ public class EnumTests
 	{
 		Shape shp = null;
 		shp = Shape.THIMBLE;
-		Assert.assertEquals("Incorrect enum value", "THIMBLE", shp.toString());
+		Assert.assertEquals("Incorrect enum value", "thimble", shp.toString());
 		
 		shp = Shape.BOOT;
-		Assert.assertEquals("Incorrect enum value", "BOOT", shp.toString());
+		Assert.assertEquals("Incorrect enum value", "boot", shp.toString());
 		
 		shp = Shape.RACECAR;
-		Assert.assertEquals("Incorrect enum value", "RACECAR", shp.toString());
+		Assert.assertEquals("Incorrect enum value", "racecar", shp.toString());
 	}
 	
 	@Test

@@ -5,11 +5,15 @@ import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 import java.util.Set;
 
+//An enum describing the location of a player's piece in the game
 enum Location
 {
 	KITCHEN, CONSERVATORY, DINING_ROOM, BALLROOM, STUDY, HALL, LOUNGE, LIBRARY, BILLIARD_ROOM;
 }
 
+/* Enumeration of the available game pieces
+ * A piece's priority defines whether it moves first when two pieces move at the same time
+ */
 enum GamePiece
 {
 	BLUE_BOOT(new GamePieceAppearance(Color.BLUE, Shape.BOOT), 5),
@@ -50,10 +54,13 @@ enum GamePiece
 	
 	public String toString()
 	{
-		return String.format("%s: a %s %s with priority %d", this.name(), this.getColor(), this.getShape(), this.priority);
+		return String.format("%s: a %s %s with priority %d", this.name(), this.getColor().name(), this.getShape().name(), this.priority);
 	}
 }
 
+/*
+ * A class simulating a board game, with player names associated with pieces at locations.
+ */
 public class BoardGame
 {
 	protected LinkedHashMap<String, GamePiece> playerPieces;
@@ -65,6 +72,7 @@ public class BoardGame
 		playerLocations = new LinkedHashMap<>();
 	}
 	
+	//Adds a new player to the game if the requested gamePiece is not already in use
 	public boolean addPlayer(String playerName, GamePiece gamePiece, Location initialLocation)
 	{
 		if(playerPieces.containsValue(gamePiece))
@@ -82,6 +90,7 @@ public class BoardGame
 		return playerPieces.get(playerName);
 	}
 	
+	//Returns the player associated with a GamePiece if one exists, otherwise returns null
 	public String getPlayerWithGamePiece(GamePiece gamePiece)
 	{
 		String result = null;
@@ -101,9 +110,14 @@ public class BoardGame
 		playerLocations.put(playerName, newLocation);
 	}
 	
+	/*
+	 * Moves two players and returns their name's in the order of movement.
+	 * Ordering is determined by GamePiece's movesFirst method
+	 */
 	public String[] moveTwoPlayers(String[] playerNames, Location[] newLocations)
 	{
 		String[] result = new String[2];
+		//If the first of playerNames moves first...
 		if(GamePiece.movesFirst(getPlayerGamePiece(playerNames[0]), getPlayerGamePiece(playerNames[1])) == getPlayerGamePiece(playerNames[0]))
 		{
 			movePlayer(playerNames[0], newLocations[0]);
@@ -125,6 +139,7 @@ public class BoardGame
 		return playerLocations.get(player);
 	}
 	
+	//Returns an arrayList of the names of all of the players at a given location
 	public ArrayList<String> getPlayersAtLocation(Location loc)
 	{
 		ArrayList<String> result = new ArrayList<>();
@@ -140,6 +155,7 @@ public class BoardGame
 		return result;
 	}
 	
+	//Returns an arrayList of the GamePieces of all of the players at a given location
 	public ArrayList<GamePiece> getGamePiecesAtLocation(Location loc)
 	{
 		ArrayList<GamePiece> result = new ArrayList<>();
@@ -157,6 +173,7 @@ public class BoardGame
 		return playerPieces.keySet();
 	}
 	
+	//Returns the Set (no repeats) of current locations of players
 	public Set<Location> getPlayerLocations()
 	{
 		return new HashSet<Location>(playerLocations.values());

@@ -1,12 +1,13 @@
 
 /*
- * A class to do full-scale testing of every method in the BoardGame class
+ * A class to do full-scale testing of the project
  */
 public class Driver
 {
 
 	public static void main(String[] args)
 	{
+		//A sequence of typical play of the BoardGame
 		BoardGame game = new BoardGame();
 		game.addPlayer("Jeff", GamePiece.BLUE_BOOT, Location.BALLROOM);
 		System.out.println("Jeff's game piece is the " + game.getPlayerGamePiece("Jeff"));
@@ -21,7 +22,6 @@ public class Driver
 		System.out.println("The current players are " + game.getPlayers());
 		System.out.println("The current locations are " + game.getPlayerLocations());
 		System.out.println("The current pieces are " + game.getPlayerPieces());
-		
 	}
 
 }

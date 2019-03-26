@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
-
+/*
+ * A class to test all of the methods in the GamePieceAppearance class
+ */
 public class GamePieceAppearanceTest
 {
 	@Test

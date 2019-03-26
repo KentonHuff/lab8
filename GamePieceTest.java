@@ -4,7 +4,6 @@ import org.junit.Test;
 /*
  * A class for testing the values and methods of the GamePiece enum
  */
-
 public class GamePieceTest
 {
 	@Test
@@ -24,7 +23,7 @@ public class GamePieceTest
 	@Test
 	public void movesFirstTest()
 	{
-		//GREEN_BOOT's priority is lower than RED_THIMBLE's
+		//GREEN_BOOT's priority is lower than RED_THIMBLE's. GREEN_BOOT should move first
 		Assert.assertEquals("Incorrect ordering", GamePiece.GREEN_BOOT, GamePiece.movesFirst(GamePiece.GREEN_BOOT,  GamePiece.RED_THIMBLE));
 		Assert.assertEquals("Incorrect ordering", GamePiece.BLUE_RACER, GamePiece.movesFirst(GamePiece.BLUE_BOOT,  GamePiece.BLUE_RACER));
 	}
